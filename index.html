@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="shortcut icon" href="assets/light.png" type="image/x-icon" sizes="16x16" />
+		<title>ToDoApp</title>
+
+		<link rel="stylesheet" href="css/styles.css" />
+	</head>
+	<body>
+		<!-- MODAL -->
+		<div class="modal" id="modal1">
+			<div class="modal__dialog">
+				<header class="modal__header">
+					Escreva uma nova tarefa e pressione 'Enter'
+					<button class="modal__close" data-close>X</button>
+				</header>
+				<section class="modal__content">
+					<!-- ALERT -->
+					<div id="alert__empty"></div>
+					<form action="">
+						<label for="todo1">A Fazer:</label>
+						<input type="text" id="todo1" name="todo1" autofocus />
+
+						<button id="add__task">ADD</button>
+					</form>
+				</section>
+			</div>
+		</div>
+
+		<main>
+			<div class="container">
+				<!-- NAV BAR -->
+				<nav class="main-nav">
+					<ul>
+						<li><a href="">ToDoApp</a></li>
+						<li><a class="link-web" href="https://github.com/fabergames1" target="_blank">GITHUB</a></li>
+					</ul>
+				</nav>
+
+				<!-- MAIN CONTENT -->
+				<div class="to-do dropzone">
+					<h3>A fazer</h3>
+					<button class="add-todo" data-open="modal1">Adicionar Tarefa</button>
+					<div class="container__todo card" draggable="true" style="display: none">Exemplo</div>
+				</div>
+				<div class="doing dropzone">
+					<h3>Fazendo</h3>
+				</div>
+				<div class="done dropzone">
+					<h3>Feito</h3>
+				</div>
+				<!-- FOOTER -->
+				<footer class="main-footer">
+					<address>Fabricio Perrone - 2023 &copy; - Todos os direitos reservados </address>
+				</footer>
+			</div>
+		</main>
+
+		<!-- JS CODE -->
+		<script src="js/Task.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>

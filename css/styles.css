@@ -1,0 +1,319 @@
+:root {
+	--bg-color: #191970;
+	--navbar-color: #f17ea1;
+	--footer-color: #f17ea1;
+	--cards-color:#f17ea1;
+	--radius: 5px;
+	--padding: 10px;
+	--bg-color-card: #f17ea1;
+	--btn-color: #f1faee;
+	--link-web: #e63946;
+}
+
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+body {
+	font-family: 'Inter', sans-serif;
+	background-color: var(--bg-color);
+	color: black;
+}
+
+/* Grid */
+.container {
+	padding: 1em;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: 0.1fr 1fr 0.1fr;
+	gap: 1rem;
+	text-transform: uppercase;
+	text-align: center;
+	height: 90vh;
+	font-weight: 800;
+	grid-template-areas:
+		'main-nav main-nav main-nav'
+		'todo doing done'
+		'main-footer main-footer main-footer';
+}
+
+.main-footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-area: main-footer;
+	background-color: var(--footer-color);
+	padding-top: var(--padding);
+	border-radius: var(--radius);
+	color: white;
+}
+
+.main-nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-area: main-nav;
+	background-color: var(--navbar-color);
+	padding-top: var(--padding);
+	border-radius: var(--radius);
+}
+
+.to-do {
+	grid-area: todo;
+	background-color: var(--cards-color);
+	min-height: 8em;
+	padding-top: var(--padding);
+	border-radius: var(--radius);
+}
+
+.doing {
+	grid-area: doing;
+	background-color: var(--cards-color);
+	padding-top: var(--padding);
+	border-radius: var(--radius);
+}
+
+.done {
+	grid-area: done;
+	background-color: var(--cards-color);
+	padding-top: var(--padding);
+	border-radius: var(--radius);
+}
+
+/* Campo NavBar */
+
+nav a {
+	color: white;
+	text-decoration: none;
+}
+
+ul {
+	list-style-type: none;
+}
+
+nav li {
+	display: inline;
+}
+
+/* Parte dos Links */
+
+a {
+	text-align: center;
+	font-family: inherit;
+	text-decoration: none;
+	font-weight: bold;
+	margin: 1rem;
+	transition: all 300ms;
+}
+
+a:hover {
+	color: #a8dadc;
+}
+
+.link-web {
+	color: var(--link-web);
+}
+
+/* Botoes */
+
+button {
+	cursor: pointer;
+	width: 90%;
+	height: 4vh;
+	background-color: var(--btn-color);
+	border: none;
+	box-shadow: 0px 2px 2px gray;
+	margin: 0px auto;
+	font-size: 1.2em;
+	transition: all 300ms;
+	margin-top: 10px;
+}
+
+button:hover {
+	background-color: rgb(165, 165, 165);
+}
+
+/* Campo Alert */
+
+.alert {
+	width: 80%;
+	margin: 0px auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+	padding: 10px;
+	background-color: red;
+	color: white;
+	font-size: 1em;
+	border-radius: var(--radius);
+}
+
+/* Campo Card */
+
+.card {
+	display: flex;
+	background-color: var(--bg-color-card);
+	padding: var(--padding);
+	margin: 1.2em;
+	border-radius: var(--radius);
+	color: white;
+	font-weight: normal;
+	cursor: pointer;
+	justify-content: space-between;
+}
+
+/* Campo Modal */
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+	background: rgba(51, 51, 51, 0.8);
+	cursor: pointer;
+	visibility: hidden;
+	opacity: 0;
+	transition: all 300ms;
+	color: black;
+}
+
+.modal__dialog {
+	position: relative;
+	max-width: 800px;
+	max-height: 80vh;
+	border-radius: var(--radius);
+	background: var(--cards-color);
+	overflow: auto;
+	cursor: default;
+	width: 40%;
+	font-size: 1.2em;
+}
+
+.modal__dialog > * {
+	padding: 1rem;
+}
+
+.modal__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: var(--navbar-color);
+	color: white;
+}
+
+.modal__header .modal__close {
+	font-size: 1.5rem;
+}
+
+.modal__close {
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	outline: none;
+	font-size: inherit;
+	box-shadow: none;
+	width: 10%;
+	padding: 0;
+	margin: 0;
+	color: white;
+}
+
+.modal__close:hover {
+	background-color: transparent;
+	font-weight: 800;
+}
+
+.modal p + p {
+	margin-top: 1rem;
+}
+.modal.is-visible {
+	visibility: visible;
+	opacity: 1;
+}
+
+.modal__content {
+	margin: 0.8em;
+}
+
+input {
+	width: 100%;
+	height: 2em;
+	font-size: 1em;
+	margin-top: 0.5em;
+}
+
+label {
+	text-align: center;
+	color: black;
+}
+
+/* Campo para adicionar Botão */
+
+#add__task {
+	display: block;
+	width: 50%;
+}
+
+/* Campo para remover Botao */
+.remove__button {
+	background-color: var(--link-web);
+	width: 10%;
+	padding: 0;
+	margin: 0;
+	height: 10%;
+	border: 1px solid black;
+	transition: all 300ms;
+}
+
+.remove__button:hover {
+	background-color: rgb(255, 205, 205);
+}
+
+/* Campo de consulta de tarefas */
+
+@media (max-width: 1000px) {
+	.container {
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: 0.3fr 1fr 1fr 0.2fr;
+		height: 100vh;
+		gap: 0.7rem;
+		font-size: 0.9em;
+		font-weight: 800;
+		grid-template-areas:
+			'main-nav main-nav main-nav main-nav'
+			'todo todo doing doing'
+			'done done done done'
+			'main-footer main-footer main-footer main-footer';
+	}
+
+	.modal__dialog {
+		width: 50%;
+		font-size: 1em;
+	}
+}
+
+@media (max-width: 800px) {
+	.container {
+		grid-template-columns: 1fr;
+		grid-template-rows: 0.1fr 1fr 1fr 1fr 0.1fr;
+		gap: 0.5rem;
+		font-size: 0.8em;
+		grid-template-areas:
+			'main-nav main-nav main-nav'
+			'todo todo todo'
+			'doing doing doing'
+			'done done done'
+			'main-footer main-footer main-footer';
+	}
+
+	.add-todo {
+		font-size: 1.2em;
+		width: 40%;
+	}
+}
